@@ -39,6 +39,17 @@ $.get("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-075?Authorizati
     $("#data13").text(data13+"16方位");
     $("#data14").text(data14+"℃");
  })
+ function showData(){
+    if(c==28){
+        c=0;
+    }else{
+        c+=1;
+    }
+    let city = weatherData.records.locations[0].locationsName;
+    let district = weatherData.records.locations[0].location[c].locationName;
+    $("#city").text(city);
+    $("#district").text(district);
+ }
 function showdetail(){
     if(i==14&&j==14){
         j=0;
@@ -83,4 +94,4 @@ function showdetail(){
     $("#data14").text(data14+"℃");
 }
 setInterval("showdetail()","2000");
-// setInterval("showData()","28000");
+ setInterval("showData()","28000");
